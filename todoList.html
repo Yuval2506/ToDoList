@@ -5,16 +5,38 @@
 	<title>ToDoList</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
 </head>
 
 <body>  
         <header>
-          <img src="js-logo-xs.png" alt="JavaScript logo" />
-          <div>
-            <h1>To Do List</h1>
-            <p>Vanilla JavaScript</p>
-          </div>
+            <div>
+                
+                <div>
+                    <img src="js-logo-xs.png" alt="JavaScript logo" />
+                    <h1>To Do List</h1>
+                    <p>Vanilla JavaScript</p>
+                </div>
+            </div>
         </header>
+
+        <button id="btn-add-task">add task</button>
+
+        <form>  
+            <div>
+                <p>Main Task</p>
+                <input type="text" id="text-mainTask">
+            </div>
+            <button id="btn-add-subTask" type="button">add sub task</button>
+            <div>
+                <input type="text" id="text-subTask">
+                <div id="new_chq"></div>
+            </div>
+            <div>
+                <button type="submit" type="button">submit</button>
+            </div>
+        </form>
+        <input type="checkbox" id="btn-checkbox">
 </body>
 
 </html>
