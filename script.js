@@ -27,9 +27,12 @@ function handleAddTask(event) {
     let subTasks = document.getElementsByClassName("added-subTask");
     
     var subsString = [];
-    subsString = subsString.push(subTask.value);
-    var subs = Array.prototype.slice.call( subTasks )
-    subsString = subs.map(element => { return element.value})
+    subsString.push(subTask.value);
+    var subs = Array.prototype.slice.call( subTasks );
+    subs.forEach(element => {
+        subsString.push(element.value);
+    });
+
     console.log(subsString);
     var task = {mainTask:mainTask.value, subTasks:subsString}; // create task object
     console.log(task);
@@ -44,6 +47,7 @@ function handleAddTask(event) {
     subTask.value="";
     subs.forEach(element => {
         element.value="";
+        //document.getElementById('div-${counter}').setAttribute("hidden", "hidden"); // hide checkboxes
     }); // clear input texts
 
     btnAddTask.style.visibility = 'visible';
@@ -55,19 +59,36 @@ function handleAddTask(event) {
 
   function printTasks () {
 
-    var countPrint=0;
+    
     var tasks = JSON.parse(localStorage.getItem("tasksList"));
 
-    console.log("Print tasks:"+tasks);
-
-    /*tasks.forEach(element => {
-        var printMain = `<h1>${tasks[counter].mainTask}</h1>`;
-        //var printSub = `<h1>${subTask.value}</h1>`;
-    
-        document.getElementById("tasks-div").innerHTML += (printMain);
-        //document.getElementById("tasks-div").innerHTML += (printSub);
-    });*/
+    tasks.forEach(element => {
+        console.log("countPrint:"+countPrint);
+        console.log("Print tasks2:"+tasks);
+        if (countPrint<tasks.length)
+        {
+            var printMain = `<h1> <input type="checkbox" class="checkboxes" id="checkbox-${idCount}"> ${tasks[countPrint].mainTask} </h1> `;
+            document.getElementById("tasks-div").innerHTML += (printMain);
+            console.log("countPrint:"+countPrint);
+            tasks[countPrint].subTasks.forEach (element => {
+                console.log("countId:"+countPrint);
+                idCount++;
+                var printSub = `<h2><input type="checkbox" class="checkboxes" id="checkbox-${idCount}"> ${element} </h2> `;
+                document.getElementById("tasks-div").innerHTML += (printSub);
+                console.log("countPrint:"+countPrint);
+                
+            }); // print each sub-task
+        
+            tasks.shift();
+            //var newTasks = localStorage.setItem("tasksList", JSON.stringify(tasks)); // push new task into localStrange array
+        }
+    }); // print each task
+    countPrint++;
+    idCount++;
   }
+
+  var countPrint=0;
+  var idCount=0;
 
   var allTasks=[];
   allTasks = localStorage.setItem("tasksList", JSON.stringify(allTasks));

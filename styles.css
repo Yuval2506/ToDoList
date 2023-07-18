@@ -63,7 +63,7 @@
     padding: 0.75rem 1rem;
 }
 
-    #btn-checkbox {
+    .checkboxes {
         top: 0;
         left: 0;
         height: 25px;
@@ -71,11 +71,11 @@
         accent-color: #282f33;
     }
 
-    #btn-checkbox:checked {
+    .checkboxes:checked {
         accent-color: #282f33;
     }
 
-    #btn-checkbox:hover {
+    .checkboxes:hover {
         background-color: #ffffff;
     }
     
