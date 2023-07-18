@@ -19,24 +19,26 @@
                 </div>
             </div>
         </header>
-
-        <button id="btn-add-task">add task</button>
-
-        <form>  
-            <div>
-                <p>Main Task</p>
-                <input type="text" id="text-mainTask">
-            </div>
-            <button id="btn-add-subTask" type="button">add sub task</button>
-            <div>
-                <input type="text" id="text-subTask">
-                <div id="new_chq"></div>
-            </div>
-            <div>
-                <button type="submit" type="button">submit</button>
-            </div>
-        </form>
-        <input type="checkbox" id="btn-checkbox">
+        <div>
+             <button id="btn-add-task">add task</button>
+        </div>
+        <div id ="add-taskDiv" hidden>
+            <form id="add-task-form">  
+                <div>
+                    <p>Main Task</p>
+                    <input type="text" id="text-mainTask">
+                </div>
+                <button id="btn-add-subTask" type="button">add sub task</button>
+                <div>
+                    <input type="text" id="text-subTask">
+                    <div id="new_chq"></div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="tasks-div">
+            <input type="checkbox" id="btn-checkbox">
+        </div>
 </body>
 
 </html>
