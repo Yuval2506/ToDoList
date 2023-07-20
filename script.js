@@ -64,12 +64,14 @@ function isEmpty(subs) {
     console.log("isTrue");
     console.log("subs",subs);
 
-    for(let subTask of subs){
+    return subs.some((subtask)=> subtask==="");
+
+    /*for(let subTask of subs){
         if (subTask===""){
             return true
         }
         return false
-    }
+    }*/
 }
 
   function printTasks () {
